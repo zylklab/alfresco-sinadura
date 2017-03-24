@@ -14,7 +14,26 @@ Sinadura 5 for Alfresco is an addon for digital signature in Alfresco 5. The add
 
 ## Screenshots
 
-TODO
+### Sign action in Alfresco Share
+
+![Sign Action in Alfresco Share](screenshots/sign-one-file.png)
+
+
+### Sign multiple action in Alfresco Share
+
+![Sign Multiple Action in Alfresco Share](screenshots/sign-multiple-action.png)
+
+### Signature preview for PDF files
+
+![Previewing PDF signatures](screenshots/signature-preview.png)
+
+### Previews and custom position for digital signatures for PDF files
+
+![Previewing PDF signatures](screenshots/preview-and-stamp-position.png)
+
+### Digital signature profiles with customizable visible stamps for PDF files
+
+![Digital signature profiles](screenshots/sinadura-profile.png)
 
 ## Components
  
