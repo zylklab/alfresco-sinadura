@@ -1,4 +1,6 @@
-# Sinadura 5 for Alfresco ECM: Protocol based digital signatures for Alfresco
+# Sinadura 5 for Alfresco ECM
+
+Protocol based digital signatures for Alfresco
 
 ## Intro
 
