@@ -64,7 +64,7 @@ If sinaduraCloud is deployed in the same Tomcat container than alfresco.war
 In Repo AMP under /config/alfresco/extension/zk-sign-online.properties
 
 ```
-zk.sign.sinadura.cloud.url=http://<alfresco-host-frontend-url/sinaduraCloud"
+zk.sign.sinadura.cloud.url=http://<alfresco-host-frontend-url/sinaduraCloud
 ```
 
 In Share AMP under /WEB-INF/classes/alfresco/site-webscripts/org/alfresco/components/documentlibrary/include/zylk.lib.ftl, you have to change  for pointing to your corresponding Sinadura services url. For example, if you deploy sinaduraCloud.war in the tomcat servers with alfresco.war 
