@@ -6,6 +6,4 @@ http://www.sinadura.net/es/community/downloads/-/document_library/view/234329
 
 ## Translating sinadura
 
-
-
-
+Under your $SINADURA_INSTALL/resources/i18n place the corresponding properties files
