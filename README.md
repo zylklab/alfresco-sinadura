@@ -158,9 +158,16 @@ Please consider contribute to Sinadura for an improved cluster mode or new types
 - Alfresco 5.0.3
 - Alfresco 5.1.2
 
-## Contributors
+## Main contributors
+
+Sinadura addon for Alfresco
 - Alfredo Sanchez
-- Cesar Capillas
+- [Cesar Capillas](http://github.com/CesarCapillas)
+
+Sinadura Desktop client and Sinadura Services (sinaduraCloud.war)
+- Alfredo Sanchez
+- [Irune Prado](http://github.com/wideawakening)
+- [Gustavo Fernandez](http://github.com/guszylk)
 
 ## Links
 - www.sinadura.net
