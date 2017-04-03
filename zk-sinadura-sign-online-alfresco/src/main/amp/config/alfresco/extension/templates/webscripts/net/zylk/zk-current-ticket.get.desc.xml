@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>ticket</shortname>
+  <description>Get current user ticket</description>
+   <url>/slingshot/doclib/action/ticket</url>
+   <format default="json">extension</format>
+   <authentication>user</authentication>
+</webscript>

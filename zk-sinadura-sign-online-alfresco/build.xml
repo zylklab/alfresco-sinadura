@@ -1,0 +1,91 @@
+<!-- 
+
+***
+***
+*** build.xml
+***
+*** Ant file for simple tasks for packaging and deploying Alfresco AMPs
+***
+***
+***
+
+-->
+<project default="package">
+
+    <target name="init">
+    	<!-- alfresco local environment -->
+    	<property name="alfresco_home" value="/opt/alfresco52e" />
+   		<property name="shared_lib" value="${alfresco_home}/tomcat/shared/lib" />
+      <property name="amps" value="${alfresco_home}/amps" />
+      <property name="amps_share" value="${alfresco_home}/amps_share" />
+    </target>
+
+  	<target name="clean" depends="init">
+      <echo message="Purging ....." />
+      <echo message="***********************************************************" />
+      <exec executable="/usr/bin/mvn">
+          <arg value="clean"/>
+          <arg value="-Ppurge"/>
+      </exec>
+  	</target>
+
+  	<target name="package" depends="init">
+      <echo message="Packaging ....." />
+      <echo message="***********************************************************" />
+      <exec executable="/usr/bin/mvn">
+          <arg value="package"/>
+          <arg value="-DskipTests=true"/>
+      </exec>
+  	</target>
+
+	  <target name="deploy" depends="init,clean,package,stop-alfresco,copy-to-amp,apply-amps,start-alfresco" />
+
+	  <target name="copy-to-amp" depends="init" description="Copy to amps">
+	    <echo message="Copy ./target/*.amp to ${amps}" />
+	    <echo message="***********************************************************" />
+      <copy todir="${amps}">
+        <fileset dir="target">
+          <include name="**/*.amp" />
+        </fileset> 
+      </copy>
+    </target>
+
+    <target name="copy-to-amp-share" depends="init" description="Copy to amps_share">
+      <echo message="Copy ./target/*.amp to ${amps_share}" />
+      <echo message="***********************************************************" />
+      <copy todir="${amps_share}">
+        <fileset dir="target">
+          <include name="**/*.amp" />
+        </fileset> 
+      </copy>
+    </target>
+
+    <target name="stop-alfresco" depends="init" description="Stop Local Alfresco">
+    	<echo message="Stopping Alfresco ....." />
+    	<echo message="***********************************************************" />
+    	<exec executable="/bin/bash">
+    		<arg value="${alfresco_home}/alfresco.sh"/>
+    		<arg value="stop"/>
+    	</exec>
+  	</target>
+
+  	<target name="start-alfresco" depends="init" description="Start Local Alfresco">
+    	<echo message="Starting Alfresco ....." />
+    	<echo message="***********************************************************" />
+    	<exec executable="/bin/bash">
+      		<arg value="${alfresco_home}/alfresco.sh"/>
+      		<arg value="start"/>
+    	</exec>
+  	</target>
+
+    <target name="apply-amps" depends="init" description="Apply AMPs">
+      <echo message="Applying AMPS in Alfresco ....." />
+      <echo message="********************************************" />
+      <echo message="********************************************" />
+      <echo message="********************************************" />
+      <exec executable="/bin/bash">
+        <arg value="${alfresco_home}/bin/apply_amps.sh"/>
+      </exec>
+    </target>
+
+</project>

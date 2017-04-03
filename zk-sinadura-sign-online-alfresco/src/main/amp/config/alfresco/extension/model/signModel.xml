@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="sign:ecm" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+   <!-- Optional meta-data about the model -->   
+   <description>Zylk Signature Model</description>
+   <author>Patricia Yague</author>
+   <version>1.0</version>
+
+   <!-- Imports are required to allow references to definitions in other models -->   
+   <imports>
+      <!-- Import Alfresco Dictionary Definitions -->
+      <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+      <!-- Import Alfresco Content Domain Model Definitions -->
+      <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+   </imports>
+
+   <namespaces>
+      <namespace uri="zylk.sign.model" prefix="sign"/>
+   </namespaces>
+
+   <aspects>
+   	<aspect name="sign:firmable">
+         <properties>
+            <property name="sign:firmado">
+               <type>d:boolean</type>   
+	            <default>false</default>            
+            </property>               
+         </properties>
+         <associations>
+            <association name="sign:signedBy">
+               <source>
+                  <mandatory>false</mandatory>
+                  <many>true</many>
+               </source>
+               <target>
+                  <class>cm:content</class>
+                  <mandatory>false</mandatory>
+                  <many>true</many>
+               </target>
+            </association>
+         </associations>
+      </aspect>        
+   </aspects> 
+
+</model>
