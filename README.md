@@ -41,7 +41,21 @@ If sinaduraCloud is deployed in the same Tomcat container than alfresco.war
 In Repo AMP under alfresco/extension/zk-sign-online.properties
 
 ```
-zk.sign.sinadura.cloud.url=http://<alfresco-host-frontend-url/sinaduraCloud
+#
+# Sinadura online properties
+#
+
+# Sinadura Services endpoint
+zk.sign.sinadura.cloud.url=http://<alfresco-host-frontend-url>/sinaduraCloud
+
+# This option configures the signature type for PDF files. It may be PDF|XADES
+zk.sign.pdf.signature.type=PDF
+
+# This option enable to store all digital signatures in the same directory of the original document
+zk.sign.upload.path.relative=true
+
+# If previous property is false, a rootpath may be configured
+zk.sign.upload.path.node=workspace://SpacesStore/dfe991c6-e558-44ce-ba75-27032b69568b
 ```
 
 In Share AMP under alfresco/site-webscripts/org/alfresco/components/documentlibrary/include/zylk.lib.ftl, you have to change  for pointing to your corresponding Sinadura services url. For example, if you deploy sinaduraCloud.war in the tomcat servers with alfresco.war 
@@ -51,6 +65,10 @@ function getSinaduraServicesUrl() {
 	return "http://<alfresco-host-frontend-url>/sinaduraCloud";
 }
 ```
+
+In addition, you can configure customize the mimetypes, for which you want to show the Sign with Sinadura action in:
+ * zk-sign-online-context.xml
+ * zk-sinadura-sign-online-share-extension.xml
 
 ### Cluster mode
 
