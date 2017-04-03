@@ -12,29 +12,6 @@ Sinadura 5 for Alfresco is an addon for digital signature in Alfresco 5. The add
 - Advanced signature properties, such as timestamps or digital signature validations.
 - Digital signature profiles, depending on your corporate certificates using custom images for signature stamps (for PDF only). You can - also place these visible stamps in a customized position of the document.
 
-## Screenshots
-
-### Sign action in Alfresco Share
-
-![Sign Action in Alfresco Share](screenshots/sign-one-file.png)
-
-
-### Sign multiple action in Alfresco Share
-
-![Sign Multiple Action in Alfresco Share](screenshots/sign-multiple-action.png)
-
-### Signature preview for PDF files
-
-![Previewing PDF signatures](screenshots/signature-preview.png)
-
-### Previews and custom position for digital signatures for PDF files
-
-![Previewing PDF signatures](screenshots/preview-and-stamp-position.png)
-
-### Digital signature profiles with customizable visible stamps for PDF files
-
-![Digital signature profiles](screenshots/sinadura-profile.png)
-
 ## Components
  
 - Sinadura 5 Desktop (in your local machine): download desktop client from www.sinadura.net
@@ -61,13 +38,13 @@ In the server:
 
 If sinaduraCloud is deployed in the same Tomcat container than alfresco.war 
 
-In Repo AMP under /config/alfresco/extension/zk-sign-online.properties
+In Repo AMP under alfresco/extension/zk-sign-online.properties
 
 ```
 zk.sign.sinadura.cloud.url=http://<alfresco-host-frontend-url/sinaduraCloud
 ```
 
-In Share AMP under /WEB-INF/classes/alfresco/site-webscripts/org/alfresco/components/documentlibrary/include/zylk.lib.ftl, you have to change  for pointing to your corresponding Sinadura services url. For example, if you deploy sinaduraCloud.war in the tomcat servers with alfresco.war 
+In Share AMP under alfresco/site-webscripts/org/alfresco/components/documentlibrary/include/zylk.lib.ftl, you have to change  for pointing to your corresponding Sinadura services url. For example, if you deploy sinaduraCloud.war in the tomcat servers with alfresco.war 
 
 ```
 function getSinaduraServicesUrl() {
@@ -102,18 +79,35 @@ By the moment, in a clustered setup we need to configure a hot standby (active-p
 
 Please consider contribute to Sinadura for an improved cluster mode or new types of signature compatibility.
 
+## Screenshots
+
+### Sign action in Alfresco Share
+
+![Sign Action in Alfresco Share](screenshots/sign-one-file.png)
+
+### Sign multiple action in Alfresco Share
+
+![Sign Multiple Action in Alfresco Share](screenshots/sign-multiple-action.png)
+
+### Signature preview for PDF files
+
+![Previewing PDF signatures](screenshots/signature-preview.png)
+
+### Previews and custom position for digital signatures for PDF files
+
+![Previewing PDF signatures](screenshots/preview-and-stamp-position.png)
+
 ## TODO
 
-- Make sinaduraCloud services endpoint configurable via properties or config file
-- Change signature indicators
-- Clustering mode
-- Documentation
-- Test
+- [ ] Make sinaduraCloud services endpoint configurable via properties or config file
+- [ ] Clustering mode
+- [ ] Test, test, test
 
 ## Target setup 
 
 - Sinadura 5 Desktop 
 - Alfresco 201602GA
+- Alfresco 201702GA
 - Alfresco 5.0.3
 - Alfresco 5.1.2
 
