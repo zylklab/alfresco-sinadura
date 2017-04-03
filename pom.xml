@@ -1,0 +1,35 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.zylk</groupId>
+    <artifactId>alfresco-sinadura-parent</artifactId>
+    <name>alfresco-sinadura</name>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>Parent</description>
+    <modules>
+        <module>./zk-sinadura-sign-online-alfresco</module>
+        <module>./zk-sinadura-sign-online-share</module>
+    </modules>
+
+    <build>
+        <plugins>
+        </plugins>
+    </build>
+
+    <properties>
+    </properties>
+
+
+    <dependencies>
+    </dependencies>
+
+    <scm>
+        <url>https://github.com/zylklab/alfresco-sinadura</url>
+        <connection>scm:git:git://github.com/zylklab/alfresco-sinadura.git</connection>
+        <developerConnection>scm:git:git@github.com/zylklab/alfresco-sinadura.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <profiles>
+    </profiles>
+</project>
