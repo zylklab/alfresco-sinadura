@@ -36,6 +36,8 @@ In the server:
 
 ## Configuration
 
+### Configuring Sinadura Services Endpoint
+
 If sinaduraCloud is deployed in the same Tomcat container than alfresco.war 
 
 In Repo AMP under alfresco/extension/zk-sign-online.properties
@@ -65,12 +67,39 @@ function getSinaduraServicesUrl() {
 	return "http://<alfresco-host-frontend-url>/sinaduraCloud";
 }
 ```
+### Configuring mimetypes
 
-In addition, you can configure customize the mimetypes, for which you want to show the Sign with Sinadura action in:
- * zk-sign-online-context.xml
- * zk-sinadura-sign-online-share-extension.xml
+In addition, you can configure the mimetypes, for which you want to show the Sign with Sinadura action in:
 
-### Cluster mode
+zk-sign-online-context.xml (the  evaluator is disabled by default)
+ 
+```
+<config evaluator="string-compare" condition="DocLibActions">
+     <actions>
+          <action id="zk-sign-online" type="javascript" label="zk.label.sign.online" icon="zk-sign-online">
+          <param name="function">onActionZKSignOnline</param>
+          <!-- evaluator>zk-evaluator.doclib.action.signOnline</evaluator> -->
+          <permissions>
+               <permission allow="true">Write</permission>
+          </permissions>
+     </action>
+</actions>
+```
+ 
+zk-sinadura-sign-online-share-extension.xml
+
+```
+<!-- evaluator mimetypes -->
+<bean id="zk-evaluator.doclib.action.signOnlineMimetype" parent="evaluator.doclib.action.isMimetype">
+	<property name="mimetypes">
+		<list>
+			<value>application/pdf</value>
+		</list>
+	</property>
+</bean>
+```
+
+### Cluster mode configuration
 
 By the moment, in a clustered setup we need to configure a hot standby (active-passive). For example with an Apache frontend:
 
