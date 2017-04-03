@@ -6,5 +6,6 @@ Sinadura Sign Services are available via sinaduraCloud.war deployed in a Tomcat 
 Once deployed, you can test if available Sign Services via curl command.
 
 ```
-curl ....
+curl http://localhost:8080/sinaduraCloud/rest/v1/version/get
 ``` 
+It must return 1.0
