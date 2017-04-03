@@ -1,0 +1,84 @@
+<extension>
+   <modules>
+      <module>
+         <id>Sign with Sinadura Action</id>
+         <auto-deploy>true</auto-deploy>
+         <version>1.0</version>
+         <configurations>
+
+            <config evaluator="string-compare" condition="DocLibCustom">
+              <dependencies>      
+                <js src="components/sign-online/zk-sign-online-actions.js" />
+                <js src="components/sign-online/sinadura.js" />
+                <css src="components/sign-online/zk-sign-online-actions.css" />
+              </dependencies>
+            </config>
+
+            <config evaluator="string-compare" condition="DocLibActions">
+              <actions>
+                <action id="zk-sign-online" type="javascript" label="zk.label.sign.online"
+                  icon="zk-sign-online">
+                  <param name="function">onActionZKSignOnline</param>
+                  <!-- evaluator>zk-evaluator.doclib.action.signOnline</evaluator> -->
+                  <permissions>
+                    <permission allow="true">Write</permission>
+                  </permissions>
+                </action>
+              </actions>
+
+              <actionGroups>
+                <actionGroup id="document-browse">
+                  <action index="105" id="zk-sign-online" />
+                </actionGroup>
+                <actionGroup id="document-details">
+                  <action index="105" id="zk-sign-online" />
+                </actionGroup>
+
+              </actionGroups>
+
+            </config>
+
+            <config evaluator="string-compare" condition="DocumentLibrary">
+              <aspects>
+                <visible>     
+                  <aspect name="sign:firmable" />
+                </visible>
+
+                <addable>
+                </addable>
+
+                <removeable>
+                </removeable>
+              </aspects>
+
+              <indicators>
+                <indicator id="zk-signed" index="9">
+                  <evaluator>zk-evaluator.doclib.action.hasFirmableAspect</evaluator>
+                </indicator>
+              </indicators>
+
+              <multi-select>
+                    <action type="action-link" id="onActionZKSignOnline" asset="document" label="menu.selected-items.sign" />
+                  </multi-select>
+
+            </config>
+
+            <config evaluator="aspect" condition="sign:firmable">
+              <forms>
+                <form>
+                  <field-visibility>
+                    <show id="sign:firmado" />
+                  </field-visibility>
+                  <appearance>
+                    <set id="firma_panel" appearance="bordered-panel" label-id="zk.label.aspect.sign.info" />
+                    <field id="sign:firmado" set="firma_panel" read-only="true" label-id="zk.label.aspect.property.signed"/>
+                  </appearance>
+                </form>
+              </forms>
+            </config>
+
+
+         </configurations>
+      </module>
+   </modules>
+</extension>
