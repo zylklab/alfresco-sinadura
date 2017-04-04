@@ -99,6 +99,19 @@ zk-sinadura-sign-online-share-extension.xml
 </bean>
 ```
 
+### Configuring previews
+In Share AMP, you must extend:
+
+components/preview/pdfjs/pdf.worker.js
+
+commenting this part.
+
+```
+if (this.data.fieldType === 'Sig') { 
+	warn('unimplemented annotation type: Widget signature'); 
+	return false;
+}
+```
 ### Cluster mode configuration
 
 By the moment, in a clustered setup we need to configure a hot standby (active-passive). For example with an Apache frontend:
