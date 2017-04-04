@@ -99,7 +99,7 @@ zk-sinadura-sign-online-share-extension.xml
 </bean>
 ```
 
-### Configuring previews
+### Configuring Share previews for PDF signatures 
 In Share AMP, you must extend:
 
 components/preview/pdfjs/pdf.worker.js
