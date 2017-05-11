@@ -31,6 +31,7 @@ public class UploadSignedContentWebscript extends AbstractWebScript {
 	private static Log logger = LogFactory.getLog(UploadSignedContentWebscript.class);
 
 	private ServiceRegistry registry;
+	private PropertiesManager propertiesManager;
 
 	private final static QName PROP_FIRMADO = QName.createQName("{zylk.sign.model}firmado");
 	private final static QName ASSOC_SIGNED_BY = QName.createQName("{zylk.sign.model}signedBy");
@@ -44,7 +45,7 @@ public class UploadSignedContentWebscript extends AbstractWebScript {
 		logger.debug("token: " + token);
 		logger.debug("nodeRefparam: " + nodeRefparam);
 
-		String serverUrl = PropertiesManager.getProperty(PropertiesManager.SIGN_SINADURA_CLOUD_URL);
+		String serverUrl = propertiesManager.getSignSinaduraCloudUrl();
 		String apiUrl =  serverUrl + "/rest/v1";
 		
 		String getSignatureUrl =  apiUrl + "/transactions/{transaction-id}/signaturefile/get?idDocument={id-document}";
@@ -62,7 +63,7 @@ public class UploadSignedContentWebscript extends AbstractWebScript {
 		
 		if (mimetype.equals(MimetypeMap.MIMETYPE_PDF)) {
 			
-			if (PropertiesManager.getProperty(PropertiesManager.SIGN_PDF_SIGNATURE_TYPE).equals("PDF")) {
+			if (propertiesManager.getSignPdfSignatureType().equals("PDF")) {
 				savePdfSignature(nodeRef, isContent);
 			} else {
 				saveXadesDetachedSignature(nodeRef, isContent);
@@ -112,10 +113,10 @@ public class UploadSignedContentWebscript extends AbstractWebScript {
 		ChildAssociationRef childAssociationRef = registry.getNodeService().getPrimaryParent(nodeRef);
 		
 		NodeRef folderNodeRef;
-		if (PropertiesManager.getProperty(PropertiesManager.SIGN_UPLOAD_PATH_RELATIVE).equals("true")) {
+		if (propertiesManager.getSignUploadPathRelative().equals("true")) {
 			folderNodeRef = childAssociationRef.getParentRef();
 		} else {			
-			folderNodeRef = new NodeRef(PropertiesManager.getProperty(PropertiesManager.SIGN_UPLOAD_PATH_NODE));
+			folderNodeRef = new NodeRef(propertiesManager.getSignUploadPathNode());
 		}
 
 		logger.debug("folderNodeRef: " + folderNodeRef);
@@ -165,6 +166,10 @@ public class UploadSignedContentWebscript extends AbstractWebScript {
 
 	public void setRegistry(ServiceRegistry registry) {
 		this.registry = registry;
+	}
+
+	public void setPropertiesManager(PropertiesManager propertiesManager) {
+		this.propertiesManager = propertiesManager;
 	}
 
 }
