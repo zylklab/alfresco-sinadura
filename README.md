@@ -7,11 +7,10 @@ Protocol based digital signatures for Alfresco
 Sinadura 5 for Alfresco is an addon for digital signature in Alfresco 5. The addon provides:
 
 - Actions for signing one or several files in Alfresco Share client.
-- Previews of the digital signatures in Alfresco Share Preview (for PDF only).
 - The possibility of signing any type of file. Pades signatures are used for PDF files and Xades dettached for the other mimetypes.
 - Advanced signature properties, such as timestamps or digital signature validations.
 - Digital signature profiles, depending on your corporate certificates using custom images for signature stamps (for PDF only). You can - also place these visible stamps in a customized position of the document.
-
+- Previews and metadata indicators for digital signatures
 
 ## Video demo
 
