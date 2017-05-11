@@ -45,7 +45,7 @@ In the server:
 
 If sinaduraCloud is deployed in the same Tomcat container than alfresco.war 
 
-In Repo AMP under alfresco/extension/zk-sign-online.properties
+This configuration may be in alfresco-global.properties file
 
 ```
 #
@@ -162,11 +162,6 @@ Please consider contribute to Sinadura for an improved cluster mode or new types
 
 ![Previewing PDF signatures](screenshots/preview-and-stamp-position.png)
 
-## TODO
-
-- [ ] Make sinaduraCloud services endpoint configurable via properties or config file
-- [ ] Clustering mode
-- [ ] Test, test, test
 
 ## Target setup 
 
@@ -181,11 +176,15 @@ Please consider contribute to Sinadura for an improved cluster mode or new types
 Sinadura addon for Alfresco
 - Alfredo Sanchez
 - [Cesar Capillas](http://github.com/CesarCapillas)
+- [Daniel Cañadillas](http://github.com/kaecius)
 
 Sinadura Desktop client and Sinadura Services (sinaduraCloud.war)
 - Alfredo Sanchez
 - [Irune Prado](http://github.com/wideawakening)
 - [Gustavo Fernandez](http://github.com/guszylk)
+
+Internationalization of Sinadura
+- Douglas C.R. Paes
 
 ## Links
 - www.sinadura.net
