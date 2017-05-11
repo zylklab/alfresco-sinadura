@@ -104,19 +104,6 @@ zk-sinadura-sign-online-share-extension.xml
 </bean>
 ```
 
-### Configuring Share previews for PDF signatures 
-In Share AMP, you must extend:
-
-components/preview/pdfjs/pdf.worker.js
-
-commenting this part.
-
-```
-if (this.data.fieldType === 'Sig') { 
-	warn('unimplemented annotation type: Widget signature'); 
-	return false;
-}
-```
 ### Cluster mode configuration
 
 By the moment, in a clustered setup we need to configure a hot standby (active-passive). For example with an Apache frontend:
@@ -142,6 +129,20 @@ By the moment, in a clustered setup we need to configure a hot standby (active-p
 </VirtualHost>
 ```
 
+### Configuring Share previews for PDF signatures
+In Share AMP, you must extend:
+
+components/preview/pdfjs/pdf.worker.js
+
+commenting this part.
+
+```
+if (this.data.fieldType === 'Sig') { 
+	warn('unimplemented annotation type: Widget signature'); 
+	return false;
+}
+```
+
 Please consider contribute to Sinadura for an improved cluster mode or new types of signature compatibility.
 
 ## Screenshots
@@ -154,13 +155,13 @@ Please consider contribute to Sinadura for an improved cluster mode or new types
 
 ![Sign Multiple Action in Alfresco Share](screenshots/sign-multiple-action.png)
 
-### Signature preview for PDF files
-
-![Previewing PDF signatures](screenshots/signature-preview.png)
-
 ### Previews and custom position for digital signatures for PDF files
 
 ![Previewing PDF signatures](screenshots/preview-and-stamp-position.png)
+
+### Signature preview for PDF files
+
+![Previewing PDF signatures](screenshots/signature-preview.png)
 
 
 ## Target setup 
