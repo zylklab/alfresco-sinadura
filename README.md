@@ -185,7 +185,7 @@ Sinadura Desktop client and Sinadura Services (sinaduraCloud.war)
 - [Gustavo Fernandez](http://github.com/guszylk)
 
 Internationalization of Sinadura
-- Douglas C.R. Paes
+- [Douglas C.R. Paes](https://github.com/douglascrp) - Translation to Brazilian Portuguese.
 
 ## Links
 - www.sinadura.net
