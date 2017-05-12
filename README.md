@@ -71,6 +71,9 @@ function getSinaduraServicesUrl() {
 	return "http://<alfresco-host-frontend-url>/sinaduraCloud";
 }
 ```
+
+## Advanced and custom configuration 
+
 ### Configuring mimetypes
 
 In addition, you can configure the mimetypes, for which you want to show the Sign with Sinadura action in:
@@ -103,6 +106,20 @@ zk-sinadura-sign-online-share-extension.xml
 </bean>
 ```
 
+### Configuring Share previews for PDF signatures
+In Share AMP, you must extend:
+
+components/preview/pdfjs/pdf.worker.js
+
+commenting this part.
+
+```
+if (this.data.fieldType === 'Sig') { 
+	warn('unimplemented annotation type: Widget signature'); 
+	return false;
+}
+```
+
 ### Cluster mode configuration
 
 By the moment, in a clustered setup we need to configure a hot standby (active-passive). For example with an Apache frontend:
@@ -126,20 +143,6 @@ By the moment, in a clustered setup we need to configure a hot standby (active-p
 	ProxyPass / ajp://alfnode1:8009/
 	ProxyPassReverse / ajp://alfnode2:8009/
 </VirtualHost>
-```
-
-### Configuring Share previews for PDF signatures
-In Share AMP, you must extend:
-
-components/preview/pdfjs/pdf.worker.js
-
-commenting this part.
-
-```
-if (this.data.fieldType === 'Sig') { 
-	warn('unimplemented annotation type: Widget signature'); 
-	return false;
-}
 ```
 
 Please consider contribute to Sinadura for an improved cluster mode or new types of signature compatibility.
