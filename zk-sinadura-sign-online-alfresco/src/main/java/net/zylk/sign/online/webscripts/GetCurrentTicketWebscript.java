@@ -19,7 +19,6 @@ public class GetCurrentTicketWebscript extends AbstractWebScript {
 
 		String ticket = registry.getAuthenticationService().getCurrentTicket();
 		obj.put("ticket", ticket);
-
 		String jsonString = obj.toString();
 		res.getWriter().write(jsonString);
 	}

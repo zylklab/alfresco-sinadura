@@ -6,6 +6,13 @@
 						actionName : "onActionZKSignOnline",
 						fn : function ZK_onActionZKSignOnline(files) {
 
+                            function log(m) {
+                                if (typeof (console) != "undefined") {
+                                    console.log(m);
+                                }
+                            }
+
+
 							popupLoadingGlobal = Alfresco.util.PopupManager.displayMessage(
 							{
 							    text: this.msg("zk.message.sign.wait"),
@@ -44,7 +51,7 @@
 							Alfresco.util.Ajax.request(
 					         {
 					            method: Alfresco.util.Ajax.GET,
-					            url: Alfresco.constants.PROXY_URI+"slingshot/doclib/action/ticket",
+					            url: Alfresco.constants.PROXY_URI+"/zylk/net/sinadura/cloud/params",
 					            successCallback:
 					            {
 					              	fn: function handleSuccess(data)
@@ -99,9 +106,7 @@
 										} else {
 										
 											// SINADURA START
-											
-											var sinaduraServicesUrl = getSinaduraServicesUrl();
-											var sinadura = new Sinadura(sinaduraServicesUrl);
+											var sinadura = new Sinadura(json.sinaduraCloudUrl);
 											sinadura.setOption("locale", localeSelected);
 
 											sinadura.setErrorCallback(function(code, message, status) {
