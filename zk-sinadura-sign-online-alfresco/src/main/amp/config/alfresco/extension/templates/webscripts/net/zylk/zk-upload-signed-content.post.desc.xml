@@ -1,7 +1,8 @@
 <webscript>
 	<shortname>Upload Signed content</shortname>
 	<description>Upload Signed content</description>
-	<url>/alfie/upload/content</url>
+	<family>zylk</family>
+	<url>/net/zylk/sinadura/upload/content</url>
 	<format default="json">extension</format>
 	<authentication>user</authentication>
 	<transaction>required</transaction>

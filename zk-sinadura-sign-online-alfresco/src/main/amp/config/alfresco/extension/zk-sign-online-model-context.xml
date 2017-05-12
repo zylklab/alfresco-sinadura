@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
- 
+
 <beans>
 
-    <!-- Registration of new models -->	
+    <!-- Registration of new models -->
     <bean id="extension.dictionaryBootstrapZKSign" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
         <property name="models">
             <list>
@@ -16,28 +16,27 @@
             </list>
         </property>
     </bean>
-        
 
- <bean id="webscript.net.zylk.zk-upload-signed-content.post" 
-      class="net.zylk.sign.online.webscripts.UploadSignedContentWebscript"
-      parent="webscript">
-     <property name="registry" ref="ServiceRegistry" />
-     <property name="propertiesManager" ref="webscript.net.zylk.zk-upload-signed-content.properties"/>
-  </bean>
-  
-   <bean id="webscript.net.zylk.zk-current-ticket.get" 
-      class="net.zylk.sign.online.webscripts.GetCurrentTicketWebscript"
-      parent="webscript">
-     <property name="registry" ref="ServiceRegistry" />
-  </bean>
 
-  <bean id="webscript.net.zylk.zk-upload-signed-content.properties"
-        class="net.zylk.sign.online.webscripts.utils.PropertiesManager">
-      <property name="signPdfSignatureType" value="${zk.sign.pdf.signature.type}" />
-      <property name="signUploadPathRelative" value="${zk.sign.upload.path.relative}" />
-      <property name="signUploadPathNode" value="${zk.sign.upload.path.node}" />
-      <property name="signSinaduraCloudUrl" value="${zk.sign.sinadura.cloud.url}" />
-  </bean>
+    <bean id="webscript.net.zylk.zk-upload-signed-content.post"
+          class="net.zylk.sign.online.webscripts.UploadSignedContentWebscript"
+          parent="webscript">
+        <property name="registry" ref="ServiceRegistry"/>
+        <property name="propertiesManager" ref="webscript.net.zylk.zk-upload-signed-content.properties"/>
+    </bean>
 
+    <bean id="webscript.net.zylk.zk-upload-signed-content.properties"
+          class="net.zylk.sign.online.webscripts.utils.PropertiesManager">
+        <property name="signPdfSignatureType" value="${zk.sign.pdf.signature.type}"/>
+        <property name="signUploadPathRelative" value="${zk.sign.upload.path.relative}"/>
+        <property name="signUploadPathNode" value="${zk.sign.upload.path.node}"/>
+        <property name="signSinaduraCloudUrl" value="${zk.sign.sinadura.cloud.url}"/>
+    </bean>
+
+    <bean id="webscript.net.zylk.zk-sinadura-cloud-parameters.get"
+          class="net.zylk.sign.online.webscripts.GetSinaduraCloudParametersWebscript" parent="webscript">
+        <property name="sinaduraCloudUrl" value="${zk.sign.sinadura.cloud.url}"/>
+        <property name="registry" ref="ServiceRegistry"/>
+    </bean>
 </beans>
 

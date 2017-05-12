@@ -1,0 +1,9 @@
+<webscript>
+    <shortname>Sinadura Cloud Params</shortname>
+    <description>Get current user ticket and sinadura cloud url</description>
+    <family>zylk</family>
+    <url>/net/zylk/sinadura/cloud/params</url>
+    <format default="json" />
+    <authentication>user</authentication>
+    <transaction>none</transaction>
+</webscript>
