@@ -50,7 +50,7 @@
 							Alfresco.util.Ajax.request(
 					         {
 					            method: Alfresco.util.Ajax.GET,
-					            url: Alfresco.constants.PROXY_URI+"/zylk/net/sinadura/cloud/params",
+					            url: Alfresco.constants.PROXY_URI+"/net/zylk/sinadura/cloud/params",
 					            successCallback:
 					            {
 					              	fn: function handleSuccess(data)
@@ -139,7 +139,7 @@
 													var nodeRef = inputs[i].id;
 													console.log("doc nodeRef: " + nodeRef);
 													
-													var urlPost = window.location.protocol + "//" + window.location.host + "/alfresco/service/alfie/upload/content?content&nodeRef="+nodeRef+"&token="+token+"&alf_ticket="+json.ticket;
+													var urlPost = window.location.protocol + "//" + window.location.host + "/alfresco/service/net/zylk/sinadura/upload/content?content&nodeRef="+nodeRef+"&token="+token+"&alf_ticket="+json.ticket;
 												
 													console.log("urlPost: " + urlPost);
 													
