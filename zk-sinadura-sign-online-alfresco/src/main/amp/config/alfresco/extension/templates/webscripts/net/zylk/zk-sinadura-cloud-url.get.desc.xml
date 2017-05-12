@@ -1,0 +1,11 @@
+<webscript>
+    <shortname>Get sinadura cloud url</shortname>
+    <description>Get sinadura cloud url
+        To test: curl -v -u "http://localhost:8080/alfresco/service/zylk/net/sinadura/params"
+    </description>
+    <family>zylk</family>
+    <url>/zylk/net/sinadura/cloud/url</url>
+    <format default="json"/>
+    <authentication>none</authentication>
+    <transaction>none</transaction>
+</webscript>
