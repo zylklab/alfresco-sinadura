@@ -25,12 +25,6 @@
         <property name="propertiesManager" ref="webscript.net.zylk.zk-upload-signed-content.properties"/>
     </bean>
 
-    <bean id="webscript.net.zylk.zk-current-ticket.get"
-          class="net.zylk.sign.online.webscripts.GetCurrentTicketWebscript"
-          parent="webscript">
-        <property name="registry" ref="ServiceRegistry"/>
-    </bean>
-
     <bean id="webscript.net.zylk.zk-upload-signed-content.properties"
           class="net.zylk.sign.online.webscripts.utils.PropertiesManager">
         <property name="signPdfSignatureType" value="${zk.sign.pdf.signature.type}"/>
@@ -43,11 +37,6 @@
           class="net.zylk.sign.online.webscripts.GetSinaduraCloudParametersWebscript" parent="webscript">
         <property name="sinaduraCloudUrl" value="${zk.sign.sinadura.cloud.url}"/>
         <property name="registry" ref="ServiceRegistry"/>
-    </bean>
-
-    <bean id="webscript.net.zylk.zk-sinadura-cloud-url.get"
-          class="net.zylk.sign.online.webscripts.GetSinaduraCloudUrlWebscript" parent="webscript">
-        <property name="sinaduraCloudUrl" value="${zk.sign.sinadura.cloud.url}"/>
     </bean>
 </beans>
 
