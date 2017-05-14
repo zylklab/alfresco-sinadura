@@ -180,6 +180,21 @@ Sinadura Desktop client and Sinadura Services (sinaduraCloud.war)
 Internationalization of Sinadura
 - [Douglas C.R. Paes](https://github.com/douglascrp) - Translation to Brazilian Portuguese.
 
+## History 
+
+```
+201705 - Full config via alfresco-global.properties
+
+201704 - Brazilian Portuguese translation
+
+201703 - Maven SDK 2.2 based initial version
+       - Revision of content model and properties
+       - Surf extension configuration
+       - Custom indicator 
+       - Module naming, properties, and action labeling        
+       - English translation
+```
+
 ## Links
 - www.sinadura.net
 - http://www.zylk.net/es/web-2-0/blog/-/blogs/sinadura-5-for-alfresco
