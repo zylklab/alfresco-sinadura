@@ -106,7 +106,7 @@ if (this.data.fieldType === 'Sig') {
 	return false;
 }
 ```
- Make sure to update the minified file pdf.work-min.js
+ Make sure to update the minified file pdf.worker-min.js
 
 
 
