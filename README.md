@@ -98,11 +98,7 @@ zk-sinadura-sign-online-share-extension.xml
 ```
 
 ### Configuring Share previews for PDF signatures
-In Share AMP, you must extend:
-
-components/preview/pdfjs/pdf.worker.js
-
-commenting this part.
+According to the Alfresco share version, you must comement part of code on the file /tomcat/webcomponents/preview/pdfjs/pdf.worker.js:
 
 ```
 if (this.data.fieldType === 'Sig') { 
@@ -110,6 +106,12 @@ if (this.data.fieldType === 'Sig') {
 	return false;
 }
 ```
+ Make sure to update the minified file pdf.work-min.js
+
+
+
+commenting this part.
+
 
 ### Cluster mode configuration
 
